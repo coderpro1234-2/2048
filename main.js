@@ -4,9 +4,11 @@ var highscore = ""
 var xDown = null;
 var yDown = null;
 function getTouches(evt) {
-  return evt.touches || evt.originalEvent.touches;
+  return evt.touches || 
+  evt.originalEvent.touches;
 }
 function handleTouchStart(evt) {
+  alert("?")
   const firstTouch = getTouches(evt)[0]
   xDown = firstTouch.clientX
   yDown = firstTouch.clientY
@@ -439,6 +441,6 @@ window.onload = function(){
       movestat(2, false)
     }
   })
-  document.addEventListener('touchstart', handleTouchStart());
-  document.addEventListener('touchmove', handleTouchMove());
+  document.addEventListener('touchstart', handleTouchStart(), false);
+  document.addEventListener('touchmove', handleTouchMove(), false);
 }
