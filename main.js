@@ -44,7 +44,10 @@ function addRandBlock(data) {
     addRandBlock(data)
   }
 }
-function RNGBlock() {
+function RNGBlock(f) {
+  if (checkded() && !f) {
+    return;
+  }
   if (getRndInteger(1,10) == 1) {
     addRandBlock(4)
   }
@@ -264,7 +267,7 @@ function checkded() {
   setwft()
   return false;
 }
-function updatecolor() {
+function setcolor() {
   i = 0
   while (i < 4) {
     i2 = 0
@@ -320,6 +323,13 @@ function updatecolor() {
     }
     i++
   }
+}
+function updatecolor() {
+  setcolor()
+  if (checkded()) {
+    document.getElementById("highscore").innerHTML = "You Died"
+    return;
+  }
   document.getElementById("score").innerHTML = "Score: "+score
   if (score > highscore) {
     highscore = score
@@ -328,6 +338,11 @@ function updatecolor() {
   document.getElementById("highscore").innerHTML = "High Score: "+highscore
 }
 function movestat(dir, c) {
+  if (!c) {
+    if (checkded()) {
+      return;
+    }
+  }
   if (!c) {
     settmp()
   }
@@ -377,31 +392,31 @@ function movestat(dir, c) {
   }
   if (!c) {
     if (!comparetmp()) {
-      RNGBlock()
+      RNGBlock(false)
     }
     updatecolor()
     if (checkded()) {
-      alert("You Died")
-      window.location.reload()
+      updatecolor()
     }
   }
 }
 window.onload = function(){
   getHighScore()
-  RNGBlock()
-  RNGBlock()
+  RNGBlock(true)
+  RNGBlock(true)
+  setcolor()
   updatecolor()
   document.addEventListener("keydown", function(event){
-    if (event.key == "ArrowUp") {
+    if (event.key == "ArrowUp" || event.key == "w" || event.key == "W") {
       movestat(1, false)
     }
-    if (event.key == "ArrowDown") {
+    if (event.key == "ArrowDown" || event.key == "s" || event.key == "S") {
       movestat(3, false)
     }
-    if (event.key == "ArrowLeft") {
+    if (event.key == "ArrowLeft" || event.key == "a" || event.key == "A") {
       movestat(4, false)
     }
-    if (event.key == "ArrowRight") {
+    if (event.key == "ArrowRight" || event.key == "d" || event.key == "D") {
       movestat(2, false)
     }
   })
