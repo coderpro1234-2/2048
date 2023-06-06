@@ -32,3 +32,14 @@ body {
   margin:0 auto;
   border-radius: 5px;
 }
+.mobile-button {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  font-size: large;
+  color: #776e65;
+  background-color: #bbada0;
+}
