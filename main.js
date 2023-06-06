@@ -1,42 +1,6 @@
 var score = 0
 var mash = 0
 var highscore = ""
-var xDown = null;
-var yDown = null;
-function getTouches(evt) {
-  return evt.touches || 
-  evt.originalEvent.touches;
-}
-function handleTouchStart(evt) {
-  alert("?")
-  const firstTouch = getTouches(evt)[0]
-  xDown = firstTouch.clientX
-  yDown = firstTouch.clientY
-}
-function handleTouchMove(evt) {
-  if ( ! xDown || ! yDown ) {
-    return;
-}
-var xUp = evt.touches[0].clientX;
-var yUp = evt.touches[0].clientY;
-var xDiff = xDown - xUp;
-var yDiff = yDown - yUp;
-if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {
-  if ( xDiff > 0 ) {
-    movestat(2,false)
-  } else {
-    movestat(4,false)
-  }
-} else {
-  if ( yDiff > 0 ) {
-    movestat(3,false)
-  } else {
-    movestat(1,false)
-  }
-}
-xDown = null;
-yDown = null;
-};
 function getHighScore() {
   if ((document.cookie).includes("highscore=")) {
     e = 0
@@ -441,6 +405,4 @@ window.onload = function(){
       movestat(2, false)
     }
   })
-  document.addEventListener('touchstart', handleTouchStart(), false);
-  document.addEventListener('touchmove', handleTouchMove(), false);
 }
