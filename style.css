@@ -43,3 +43,14 @@ body {
   color: #776e65;
   background-color: #bbada0;
 }
+.retry {
+  font-size: large;
+  color: #776e65;
+  background-color: #bbada0;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 14px;
+  padding: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
