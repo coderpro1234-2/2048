@@ -439,4 +439,6 @@ window.onload = function(){
       movestat(2, false)
     }
   })
+  document.addEventListener('touchstart', handleTouchStart, false);
+  document.addEventListener('touchmove', handleTouchMove, false);
 }
