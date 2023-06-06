@@ -401,6 +401,11 @@ function movestat(dir, c) {
     }
   }
 }
+function resetscore() {
+  score = 0
+  document.cookie = "highscore="+score+"; expires="+new Date(Date.now() + 9999999999).toUTCString()
+  window.location.reload()
+}
 window.onload = function(){
   getHighScore()
   RNGBlock(true)
