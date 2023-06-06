@@ -327,7 +327,8 @@ function setcolor() {
 function updatecolor() {
   setcolor()
   if (checkded()) {
-    document.getElementById("highscore").innerHTML = "You Died"
+    document.getElementById("highscore").hidden = true
+    document.getElementById("retry").hidden = false
     return;
   }
   document.getElementById("score").innerHTML = "Score: "+score
