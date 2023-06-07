@@ -1,5 +1,4 @@
 var score = 0
-var mash = 0
 var highscore = ""
 function getHighScore() {
   if ((document.cookie).includes("highscore=")) {
