@@ -13,6 +13,14 @@ body {
   font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
   color: #776e65;
 }
+.big-title {
+  font-size: 48px;
+  margin: 5px;
+  display:inline-block;
+}
+.score {
+  margin-top: 5px;
+}
 .notext {
   font-size: 0%;
 }
@@ -41,16 +49,19 @@ body {
   margin: 2px;
   font-size: large;
   color: #776e65;
-  background-color: #bbada0;
+  background-color: #cdc1b4;
 }
 .retry {
-  font-size: large;
-  color: #776e65;
-  background-color: #bbada0;
+  font-size: 25px;
+  color: #f9f6f2;
+  background-color: #776e65;
   border: none;
   border-radius: 5px;
-  margin-bottom: 14px;
+  position: relative;
+  bottom: 5px;
   padding: 7px;
   padding-top: 2px;
   padding-bottom: 2px;
+  display:inline-block;
+  margin-left:15px;
 }
