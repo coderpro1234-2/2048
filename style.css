@@ -52,13 +52,13 @@ body {
   background-color: #cdc1b4;
 }
 .retry {
-  font-size: 25px;
+  font-size: 23px;
   color: #f9f6f2;
   background-color: #776e65;
   border: none;
   border-radius: 5px;
   position: relative;
-  bottom: 5px;
+  bottom: 8px;
   padding: 7px;
   padding-top: 2px;
   padding-bottom: 2px;
