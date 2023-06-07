@@ -324,11 +324,10 @@ function setcolor() {
     i++
   }
 }
-function updatecolor() {
+function updatescreen() {
   setcolor()
   if (checkded()) {
-    document.getElementById("highscore").hidden = true
-    document.getElementById("retry").hidden = false
+    document.getElementById("highscore").innerHTML = "You Died"
     return;
   }
   document.getElementById("score").innerHTML = "Score: "+score
@@ -395,9 +394,9 @@ function movestat(dir, c) {
     if (!comparetmp()) {
       RNGBlock(false)
     }
-    updatecolor()
+    updatescreen()
     if (checkded()) {
-      updatecolor()
+      updatescreen()
     }
   }
 }
@@ -411,7 +410,7 @@ window.onload = function(){
   RNGBlock(true)
   RNGBlock(true)
   setcolor()
-  updatecolor()
+  updatescreen()
   document.addEventListener("keydown", function(event){
     if (event.key == "ArrowUp" || event.key == "w" || event.key == "W") {
       movestat(1, false)
