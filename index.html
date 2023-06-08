@@ -1,64 +1,67 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>2048</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body class="disable-select">
-    <div>
-      <h1 class="title big-title">2048</h1>
-      <button class="retry" onclick="window.location.reload()"><b>New Game</b></button>
-    </div>
-    <h3 id="score" class="title score">Score: 0</h3>
-    <h3 id="highscore" class="title">Highscore: 0</h3>
-    <div class="notext back">
-      <button id="block_00" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_01" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_02" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_03" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <br>
-      <button id="block_10" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_11" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_12" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_13" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <br>
-      <button id="block_20" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_21" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_22" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_23" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <br>
-      <button id="block_30" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_31" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_32" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_33" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-    </div>
-    <div hidden>
-      <button id="tmp_00">&nbsp;</button>
-      <button id="tmp_01">&nbsp;</button>
-      <button id="tmp_02">&nbsp;</button>
-      <button id="tmp_03">&nbsp;</button>
-      <br>
-      <button id="tmp_10">&nbsp;</button>
-      <button id="tmp_11">&nbsp;</button>
-      <button id="tmp_12">&nbsp;</button>
-      <button id="tmp_13">&nbsp;</button>
-      <br>
-      <button id="tmp_20">&nbsp;</button>
-      <button id="tmp_21">&nbsp;</button>
-      <button id="tmp_22">&nbsp;</button>
-      <button id="tmp_23">&nbsp;</button>
-      <br>
-      <button id="tmp_30">&nbsp;</button>
-      <button id="tmp_31">&nbsp;</button>
-      <button id="tmp_32">&nbsp;</button>
-      <button id="tmp_33">&nbsp;</button>
-    </div>
-    <button class="mobile-button" style="bottom: 105px; right: 105px;" onclick="movestat(1,false)">ʌ</button>
-    <button class="mobile-button" style="bottom: 25px; right: 105px;" onclick="movestat(3,false)">v</button>
-    <button class="mobile-button" style="bottom: 25px; right: 185px;" onclick="movestat(4,false)"><</button>
-    <button class="mobile-button" style="bottom: 25px; right: 25px;" onclick="movestat(2,false)">></button>
-  </body>
-  <script src="main.js"></script>
-</html>
+body {
+  text-align: center;
+  overscroll-behavior: none;
+}
+.disable-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.title {
+  font-family: "Clear Sans", "Helvetica Neue", Arial, sans-serif;
+  color: #776e65;
+}
+.big-title {
+  font-size: 48px;
+  margin: 5px;
+  display:inline-block;
+}
+.score {
+  margin-top: 5px;
+}
+.notext {
+  font-size: 0%;
+}
+.game-button {
+  width: 65px;
+  height: 65px;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  font-size: large;
+}
+.back {
+  width: max-content;
+  text-align: center;
+  background-color: #bbada0;
+  padding: 8px;
+  margin:0 auto;
+  border-radius: 5px;
+}
+.mobile-button {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  border: none;
+  border-radius: 5px;
+  margin: 2px;
+  font-size: large;
+  color: #776e65;
+  background-color: #cdc1b4;
+}
+.retry {
+  font-size: 23px;
+  color: #f9f6f2;
+  background-color: #776e65;
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  bottom: 8px;
+  padding: 7px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  display:inline-block;
+  margin-left:15px;
+}
