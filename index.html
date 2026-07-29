@@ -1,64 +1,56 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>2048</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="icon" href="favicon.ico">
-    <link rel="stylesheet" href="style.css">
   </head>
-  <body class="disable-select">
-    <div>
-      <h1 class="title big-title" onclick="window.location.href = 'https://coderpro1234-2.github.io/2048-test/'" >2048</h1>
-      <button class="retry" onclick="window.location.reload()"><b>New Game</b></button>
+  <body>
+    <div class="viewport">
+      <div class="canvas">
+        <div class="title noselect"><p>2048</p></div>
+        <div class="instructions noselect" ><button onclick="instructions()" style="background-color: var(--middle-colour); padding: 1% 5% 1% 5%; font-size: 2.8cqw;"><p>Instructions</p></button></div>
+        <button class="new-game noselect" onclick="newBoard()">NEW GAME</button>
+        <div class="scores">
+          <div class="scoreBlock">
+            <div class="scoreText noselect">SCORE:</div>
+            <div class="score" id="score">0</div>
+          </div>
+          <div class="hiscoreBlock">
+            <div class="scoreText noselect">BEST:</div>
+            <div class="score" id="hiscore">0</div>
+          </div>
+        </div>
+        <div class="board noselect">
+          <div class="fade" id="gameover" style="display: none">
+            <div class="gameover"></div>
+            <div class="gameovertitle"><p>GAME OVER</p></div>
+            <button class="newgameover" onclick="if (board.isDead()) {newBoard()}">NEW GAME</button>
+          </div>
+          <div class="fade" id="instructions" style="display: none;" onclick="if (instruct) {instructions()}">
+            <div class="gameover"></div>
+            <div class="instructiontext">
+              <p>Instructions:
+                <ul>
+                  <li>Goal: Get to 2048!</li>
+                  <li>How to play:
+                    <ul>
+                      <li>Use the arrow keys or swipe the screen to move the blocks in that direction.</li>
+                      <li>When two blocks of the same value collide, they combine into a larger block.</li>
+                      <li>After each move, a new block is spawned.</li>
+                      <li>If there are no more moves left, it's game over!</li>
+                    </ul>
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </div>
+          <div id="grid"></div>
+        </div>
+      </div>
     </div>
-    <h3 id="score" class="title score">Score: 0</h3>
-    <h3 id="highscore" class="title">Highscore: 0</h3>
-    <div class="notext back">
-      <button id="block_00" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_01" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_02" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_03" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <br>
-      <button id="block_10" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_11" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_12" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_13" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <br>
-      <button id="block_20" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_21" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_22" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_23" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <br>
-      <button id="block_30" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_31" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_32" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-      <button id="block_33" class="game-button" style="background-color: #cdc1b4;" disabled>&nbsp;</button>
-    </div>
-    <div hidden>
-      <button id="tmp_00">&nbsp;</button>
-      <button id="tmp_01">&nbsp;</button>
-      <button id="tmp_02">&nbsp;</button>
-      <button id="tmp_03">&nbsp;</button>
-      <br>
-      <button id="tmp_10">&nbsp;</button>
-      <button id="tmp_11">&nbsp;</button>
-      <button id="tmp_12">&nbsp;</button>
-      <button id="tmp_13">&nbsp;</button>
-      <br>
-      <button id="tmp_20">&nbsp;</button>
-      <button id="tmp_21">&nbsp;</button>
-      <button id="tmp_22">&nbsp;</button>
-      <button id="tmp_23">&nbsp;</button>
-      <br>
-      <button id="tmp_30">&nbsp;</button>
-      <button id="tmp_31">&nbsp;</button>
-      <button id="tmp_32">&nbsp;</button>
-      <button id="tmp_33">&nbsp;</button>
-    </div>
-    <button class="mobile-button" style="bottom: 90px; right: 90px;" onclick="movestat(1,false)">ʌ</button>
-    <button class="mobile-button" style="bottom: 10px; right: 90px;" onclick="movestat(3,false)">v</button>
-    <button class="mobile-button" style="bottom: 10px; right: 170px;" onclick="movestat(4,false)"><</button>
-    <button class="mobile-button" style="bottom: 10px; right: 10px;" onclick="movestat(2,false)">></button>
+    <script src="main.js"></script>
   </body>
-  <script src="main.js"></script>
 </html>
