@@ -441,6 +441,7 @@ window.addEventListener("touchmove", e => {
 window.addEventListener("touchend", e => {
   if (instruct) {return}
   let diff = {x: dragEnd.x - dragStart.x, y: dragEnd.y - dragStart.y}
+  if (diff.x**2+diff.y**2 < 100) {return}
   if (Math.abs(diff.x) > Math.abs(diff.y)) {
     if (diff.x < 0) {
       board.move({x: -1, y:0})
