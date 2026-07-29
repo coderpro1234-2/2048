@@ -380,6 +380,7 @@ function newBoard() {
 }
 
 function instructions() {
+  if (board.isDead()) {return}
   if (!instruct) {
     // @ts-ignore
     document.getElementById("instructions").classList.add("visible");
