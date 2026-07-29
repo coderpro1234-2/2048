@@ -454,4 +454,10 @@ window.addEventListener("touchend", e => {
       board.move({x: 0, y:1})
     }  
   }
+  hiscore = board.updateScore(hiscore)
+  if (board.isDead()) {
+    // @ts-ignore
+    document.getElementById("gameover").classList.add("visible");
+    localStorage.removeItem("boardBackup")
+  }
 })
