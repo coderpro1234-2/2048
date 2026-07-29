@@ -24,7 +24,7 @@
           </div>
         </div>
         <div class="board noselect">
-          <div class="fade" id="gameover" style="display: none">
+          <div class="fade" id="gameover" style="display: none; z-index: 99999;" onclick="if (instruct) {instructions()}">
             <div class="gameover"></div>
             <div class="gameovertitle"><p>GAME OVER</p></div>
             <button class="newgameover" onclick="if (board.isDead()) {newBoard()}">NEW GAME</button>
