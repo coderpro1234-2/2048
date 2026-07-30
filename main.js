@@ -362,11 +362,11 @@ if (!(scorebackuptxt == "score" || scorebackuptxt == null)) {
 /**
  * @type {{ x: number; y: number; }}
 */
-let dragStart;
+let dragStart = {x:0, y:0};
 /**
  * @type {{ x: number; y: number; }}
 */
-let dragEnd;
+let dragEnd = {x:0, y:0};
 
 /**
  * @type {number}
