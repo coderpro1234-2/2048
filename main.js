@@ -270,6 +270,11 @@ class Board {
         localStorage.setItem("boardBackup", JSON.stringify(this.toJSON()))
         localStorage.setItem("score", this.score.toString())
       }
+      if (this.isDead()) {
+        // @ts-ignore
+        document.getElementById("gameover").classList.add("visible");
+        localStorage.removeItem("boardBackup")
+      }
     }
   }
   forceUpdate() {
@@ -422,11 +427,6 @@ window.onload = function(){
       board.move({x: 1, y:0})
     }
     hiscore = board.updateScore(hiscore)
-    if (board.isDead()) {
-      // @ts-ignore
-      document.getElementById("gameover").classList.add("visible");
-      localStorage.removeItem("boardBackup")
-    }
   })
 }
 
@@ -456,9 +456,4 @@ window.addEventListener("touchend", e => {
     }  
   }
   hiscore = board.updateScore(hiscore)
-  if (board.isDead()) {
-    // @ts-ignore
-    document.getElementById("gameover").classList.add("visible");
-    localStorage.removeItem("boardBackup")
-  }
 })
