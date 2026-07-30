@@ -210,7 +210,7 @@ class Board {
           }
           let startPos = {x:x, y:y}
           let start = this.at(startPos)
-          if (start.value == 0) {if (step == 0) {break} else {continue}}
+          if (start.value == 0) {break}
           let endPos = {x:x+dir.x, y:y+dir.y}
           let end = this.at(endPos)
           if (end.value == 0) {
